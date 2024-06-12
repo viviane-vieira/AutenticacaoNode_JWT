@@ -1,5 +1,6 @@
 AUTENTICAÇÃO NODE + mongoDB  + JWT   login e registro com Node.js
 
+vivianevgomesdev 8MPgxLY4d6O0A0z4
  
 ° Vamos criar uma API com o Express e MongoDb
 ° Onde teremos endpoints públicos e privados;
@@ -49,4 +50,30 @@ Aplicações com Load Balancers:
 
 
 
+
+//INICIANDO
+
+NO TERMINAL DAR UM NPM INIT -Y
+DEPOIS NPM INSTAL BCRYPT = CRRIA A HASH DE SENHA
+depois $ npm install bcrypt dotenv express jsonwebtoken mongoose
+npm install --save-dev nodemon
+
+na pasta do packageJson 
+digitar esse codigo
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+
+  depois criar uma pasta chamada app.js
+
+  todar o comando npm start pra saber se deu tudo certo
+
+  na pasta app 
+  
+require('dotenv').config()
+const express = require('express')
+const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 

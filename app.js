@@ -40,6 +40,35 @@ app.post('/auth/register', async(req,res) => {
     if (password !== confirmpassword){
         return res.status(422).json({message: " As Senhas não Conferem!"})
     }
+    //CHECK IF USER EXISTS
+    const userExists = await User.findOne({email : email})
+
+    if(userExists) {
+        return res.status(422).json({message: " Digite um novo email!"})
+    }
+
+    //CREATE PASSWORD
+    const salt =  await bcrypt.genSalt(12)
+    const passwordHash =  await bcrypt.hash(password, salt)
+
+    //CREATE user 
+    const user = new User({
+        name,
+        email,
+        password: passwordHash,
+
+    })
+
+    try {
+
+        await user.save()
+
+        res.status(200).json({message: "Usuário criado com sucesso!"})
+    } catch (error) {
+        res.status(500).json({message:"Erro no servidor!"})
+        
+    }
+
 })
 
 

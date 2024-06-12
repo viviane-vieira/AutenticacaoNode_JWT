@@ -28,7 +28,17 @@ app.post('/auth/register', async(req,res) => {
 
     //validations
     if(!name){
-        return res.status(422).json({message: "O Nome é obrigatorio!*"})
+        return res.status(422).json({message: "O Nome é obrigatorio!"})
+    }
+    if(!email){
+        return res.status(422).json({message: "O Email é obrigatorio!"})
+    }
+    if(!password){
+        return res.status(422).json({message: "A Senha é obrigatoria!"})
+    }
+
+    if (password !== confirmpassword){
+        return res.status(422).json({message: " As Senhas não Conferem!"})
     }
 })
 

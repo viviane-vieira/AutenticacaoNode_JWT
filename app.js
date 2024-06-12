@@ -12,6 +12,10 @@ const app = express()
 //CONFIG JSON RESPONSE
 app.use(express.json())
 
+//  Models
+
+const User = require('./models/User')
+
 
 //OPEN ROUTE - PUBLIC ROUTE
 app.get('/', (req,res) => {
